@@ -1,0 +1,19 @@
+<div class="master-container">
+  <ng-container *ngIf="!hideHeaderAndSideMenu">
+    <app-header></app-header>
+  </ng-container>
+  <div class="container-fluid p-0" style="height: 100%;">
+    <div class="d-flex" style="height: 100%;">
+      <ng-container *ngIf="!hideHeaderAndSideMenu">
+        <div>
+          <app-side-navigation></app-side-navigation>
+        </div>
+      </ng-container>
+      <div style="width: 100%; overflow: scroll; padding-bottom: 60px;">
+        <app-message></app-message>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+

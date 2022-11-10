@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="offset-lg-4 col-lg-4 mt-5">
+        <h4 class="mb-4">WxSAPIntegration</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="offset-lg-4 col-lg-4">
+        <form>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" required [(ngModel)]="loginDetails.username" />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required [(ngModel)]="loginDetails.password" />
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" style="width: 100%;" (click)="login()">Login</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

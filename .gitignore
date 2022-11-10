@@ -1,0 +1,46 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/WxSAPIntegration-UI/dist
+/WxSAPIntegration-UI/tmp
+/WxSAPIntegration-UI/out-tsc
+/WxSAPIntegration-UI/bazel-out
+
+# Node
+/WxSAPIntegration-UI/node_modules
+/WxSAPIntegration-UI/npm-debug.log
+/WxSAPIntegration-UI/yarn-error.log
+
+# IDEs and editors
+/WxSAPIntegration-UI/.idea/
+/WxSAPIntegration-UI/.project
+/WxSAPIntegration-UI/.classpath
+/WxSAPIntegration-UI/.c9/
+/WxSAPIntegration-UI/*.launch
+/WxSAPIntegration-UI/.settings/
+/WxSAPIntegration-UI/*.sublime-workspace
+
+# Visual Studio Code
+/WxSAPIntegration-UI/.vscode/*
+/WxSAPIntegration-UI/!.vscode/settings.json
+/WxSAPIntegration-UI/!.vscode/tasks.json
+/WxSAPIntegration-UI/!.vscode/launch.json
+/WxSAPIntegration-UI/!.vscode/extensions.json
+/WxSAPIntegration-UI/.history/*
+
+# Miscellaneous
+/WxSAPIntegration-UI/.angular/cache
+/WxSAPIntegration-UI/.sass-cache/
+/WxSAPIntegration-UI/connect.lock
+/WxSAPIntegration-UI/coverage
+/WxSAPIntegration-UI/libpeerconnection.log
+/WxSAPIntegration-UI/testem.log
+/WxSAPIntegration-UI/typings
+
+# System files
+.DS_Store
+Thumbs.db
+*.*.bak
+
+/WxSAPIntegration/*.*.bak
+

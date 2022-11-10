@@ -1,0 +1,383 @@
+<div class="row my-4 mx-2">
+    <div class="col-lg-12">
+        <h3><i class="fa fa-cog" aria-hidden="true"></i> Configuration</h3>
+    </div>
+</div>
+<div class="row card-container">
+    <div class="offset-lg-2 col-lg-8">
+        <div class="card">
+            <div class="row section-container">
+                <div class="col-lg-3">
+                    <div [ngClass]="selectedSection === 'sap-adapter' ? 'selected' : ''" (click)="selectSection('sap-adapter')">
+                        SAP Adapter
+                    </div>
+                </div>
+                <!--<div class="col-lg-3" >
+                    <div [ngClass]="selectedSection === 'kafka-adapter' ? 'selected' : ''" (click)="selectSection('kafka-adapter')">
+                        Kafka Adapter
+                    </div>
+                </div>-->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- SAP Adapter -->
+                    <ng-container *ngIf="selectedSection === 'sap-adapter'">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" name="sap-username" [(ngModel)]="sapConnection.connectionSettings.user" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="sap-password" [(ngModel)]="sapConnection.connectionSettings.password" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-repoUsername" class="form-label">Repository username</label>
+                                    <input type="text" class="form-control" name="sap-repoUsername" [(ngModel)]="sapConnection.connectionSettings.repoUser" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-repoPassword" class="form-label">Repository password</label>
+                                    <input type="password" class="form-control" name="sap-repoPassword" [(ngModel)]="sapConnection.connectionSettings.repoPassword" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-client" class="form-label">Client</label>
+                                    <input type="number" class="form-control" name="sap-client" [(ngModel)]="sapConnection.connectionSettings.client" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-language" class="form-label">Language</label>
+                                    <input type="text" class="form-control" name="sap-language" [(ngModel)]="sapConnection.connectionSettings.language" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="sap-loadBalancing" class="form-label">Load Balancing</label>
+                                    <select class="form-select" name="sap-loadBalancing" [(ngModel)]="sapConnection.connectionSettings.loadBalancing">
+                                        <option value="Off">Off</option>
+                                        <option value="On">On</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-applicationServer" class="form-label">Application Server</label>
+                                    <input type="text" class="form-control" name="sap-applicationServer" [(ngModel)]="sapConnection.connectionSettings.appServerHost" [disabled]="sapConnection.connectionSettings.loadBalancing !== 'Off'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-systemNumber" class="form-label">System Number</label>
+                                    <input type="text" class="form-control" name="sap-systemNumber" [(ngModel)]="sapConnection.connectionSettings.systemNumber" [disabled]="sapConnection.connectionSettings.loadBalancing !== 'Off'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-logonGroup" class="form-label">Logon Group</label>
+                                    <input type="text" class="form-control" name="sap-logonGroup" [(ngModel)]="sapConnection.connectionSettings.logonGroup" [disabled]="sapConnection.connectionSettings.loadBalancing === 'Off'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-systemId" class="form-label">System ID</label>
+                                    <input type="text" class="form-control" name="sap-systemId" [(ngModel)]="sapConnection.connectionSettings.systemId" [disabled]="sapConnection.connectionSettings.loadBalancing === 'Off'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-messageServerHost" class="form-label">Message Server Host</label>
+                                    <input type="text" class="form-control" name="sap-messageServerHost" [(ngModel)]="sapConnection.connectionSettings.messageServerHost" [disabled]="sapConnection.connectionSettings.loadBalancing === 'Off'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-messageServerService" class="form-label">Message Server Service</label>
+                                    <input type="text" class="form-control" name="sap-messageServerService" [(ngModel)]="sapConnection.connectionSettings.messageServerService" [disabled]="sapConnection.connectionSettings.loadBalancing === 'Off'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="sap-externalRfcServer" class="form-label">External RFC Server</label>
+                                    <select class="form-select" name="sap-externalRfcServer" [(ngModel)]="sapConnection.connectionSettings.connectionType">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-programId" class="form-label">Program ID</label>
+                                    <input type="text" class="form-control" name="sap-programId" [(ngModel)]="sapConnection.connectionSettings.programId" [disabled]="sapConnection.connectionSettings.connectionType === 'No'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-gatewayHost" class="form-label">Gateway Host</label>
+                                    <input type="text" class="form-control" name="sap-gatewayHost" [(ngModel)]="sapConnection.connectionSettings.gatewayHost" [disabled]="sapConnection.connectionSettings.connectionType === 'No'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-gatewayService" class="form-label">Gateway Service</label>
+                                    <input type="text" class="form-control" name="sap-gatewayService" [(ngModel)]="sapConnection.connectionSettings.gatewayService" [disabled]="sapConnection.connectionSettings.connectionType === 'No'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-repositoryServer" class="form-label">Repository Server</label>
+                                    <input type="text" class="form-control" name="sap-repositoryServer" [(ngModel)]="sapConnection.connectionSettings.repositoryServer" [disabled]="sapConnection.connectionSettings.connectionType === 'No'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="sap-sncEnabled" class="form-label">SNC Enabled</label>
+                                    <select class="form-select" name="sap-sncEnabled" [(ngModel)]="sapConnection.connectionSettings.sncMode">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-sncQualityOfService" class="form-label">SNC Quality of Service</label>
+                                    <select class="form-select" name="sap-sncQualityOfService" [(ngModel)]="sapConnection.connectionSettings.sncQualityOfService" [disabled]="sapConnection.connectionSettings.sncMode === 'No'">
+                                        <option value="Use global built-in default settings">Use global built-in default settings</option>
+                                        <option value="Plain text, but authorization">Plain text, but authorization</option>
+                                        <option value="Each data packet will be integrity protected">Each data packet will be integrity protected</option>
+                                        <option value="Each data packet will be privacy protected">Each data packet will be privacy protected</option>
+                                        <option value="Each data packet will be privacy protected">Use maximum available security</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-sncName" class="form-label">SNC Name</label>
+                                    <input type="text" class="form-control" name="sap-sncName" [(ngModel)]="sapConnection.connectionSettings.sncMyName" [disabled]="sapConnection.connectionSettings.sncMode === 'No'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-sncPartnerName" class="form-label">SNC Partner Name</label>
+                                    <input type="text" class="form-control" name="sap-sncPartnerName" [(ngModel)]="sapConnection.connectionSettings.sncPartnerName" [disabled]="sapConnection.connectionSettings.sncMode === 'No'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-sncAuthentication" class="form-label">SNC Authentication</label>
+                                    <select class="form-select" name="sap-sncAuthentication" [(ngModel)]="sapConnection.connectionSettings.sncAuthentication" [disabled]="sapConnection.connectionSettings.sncMode === 'No'">
+                                        <option value="User and Password">User and Password</option>
+                                        <option value="SNC Credential">SNC Credential</option>
+                                        <option value="X.509 Certificate">X.509 Certificate</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-sapRouterString" class="form-label">SAP Router String</label>
+                                    <input type="text" class="form-control" name="sap-sapRouterString" [(ngModel)]="sapConnection.connectionSettings.routerString" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-useSAPGui" class="form-label">Use SAPGui</label>
+                                    <select class="form-select" name="sap-useSAPGui" [(ngModel)]="sapConnection.connectionSettings.sapGui">
+                                        <option value="Off">No</option>
+                                        <option value="On">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-rfcTrace" class="form-label">RFC Trace</label>
+                                    <select class="form-select" name="sap-rfcTrace" [(ngModel)]="sapConnection.connectionSettings.rfcTrace">
+                                        <option value="Off">No</option>
+                                        <option value="On">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-logTransactionStatus" class="form-label">Log Transaction Status</label>
+                                    <select class="form-select" name="sap-logTransactionStatus" [(ngModel)]="sapConnection.connectionSettings.logTransactionStatus">
+                                        <option value="Off">No</option>
+                                        <option value="On">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-storeMessageBody" class="form-label">Store Message Body</label>
+                                    <select class="form-select" name="sap-storeMessageBody" [(ngModel)]="sapConnection.connectionSettings.storeMsgBody">
+                                        <option value="Off">No</option>
+                                        <option value="On">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="sap-poolable" class="form-label">Poolable</label>
+                                    <select class="form-select" name="sap-poolable" [(ngModel)]="sapConnection.connectionManagerSettings.poolable">
+                                        <option value="true">Yes</option>
+                                        <option value="false">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-minimumPoolSize" class="form-label">Minimum Pool Size</label>
+                                    <input type="number" class="form-control" name="sap-minimumPoolSize" [(ngModel)]="sapConnection.connectionManagerSettings.minimumPoolSize" [disabled]="sapConnection.connectionManagerSettings.poolable === 'false'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-maximumPoolSize" class="form-label">Maximum Pool Size</label>
+                                    <input type="number" class="form-control" name="sap-maximumPoolSize" [(ngModel)]="sapConnection.connectionManagerSettings.maximumPoolSize" [disabled]="sapConnection.connectionManagerSettings.poolable === 'false'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-poolIncrementSize" class="form-label">Pool Increment Size</label>
+                                    <input type="number" class="form-control" name="sap-poolIncrementSize" [(ngModel)]="sapConnection.connectionManagerSettings.poolIncrementSize" [disabled]="sapConnection.connectionManagerSettings.poolable === 'false'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-blockingTimeout" class="form-label">Blocking Timeout (msec)</label>
+                                    <input type="number" class="form-control" name="sap-blockingTimeout" [(ngModel)]="sapConnection.connectionManagerSettings.blockingTimeout" [disabled]="sapConnection.connectionManagerSettings.poolable === 'false'" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-expireTimeout" class="form-label">Expire Timeout (msec)</label>
+                                    <input type="number" class="form-control" name="sap-expireTimeout" [(ngModel)]="sapConnection.connectionManagerSettings.expireTimeout" [disabled]="sapConnection.connectionManagerSettings.poolable === 'false'" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-startupRetryCount" class="form-label">Startup Retry Count</label>
+                                    <input type="number" class="form-control" name="sap-startupRetryCount" [(ngModel)]="sapConnection.connectionManagerSettings.startupRetryCount" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="sap-startupBackoffSecs" class="form-label">Startup Backoff Timeout (sec)</label>
+                                    <input type="number" class="form-control" name="sap-startupBackoffSecs" [(ngModel)]="sapConnection.connectionManagerSettings.startupBackoffSecs" />
+                                </div>
+                            </div>
+                            <div class="mb-3" style="float: right;">
+                                <button class="btn btn-primary"  (click)="updateSAPConnection()">Save connection</button>
+                            </div>
+                        </form>
+                    </ng-container>
+
+                    <!-- Kafka Adapter -->
+                    <!--<ng-container *ngIf="selectedSection === 'kafka-adapter'">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-version" class="form-label">Kafka version</label>
+                                    <select class="form-select" name="kafka-version" [(ngModel)]="kafkaConnection.connectionProperties.kafkaVersion">
+                                        <option value="v9">V9</option>
+                                        <option value="v10">V10</option>
+                                        <option value="v11+">V11+</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-bootstrapServers" class="form-label">Bootstrap servers</label>
+                                    <input type="text" class="form-control" name="kafka-bootstrapServers" [(ngModel)]="kafkaConnection.connectionProperties.serverList" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-keySerializerClass" class="form-label">Key serializer class</label>
+                                    <input type="text" class="form-control" name="kafka-keySerializerClass" [(ngModel)]="kafkaConnection.connectionProperties.keySerializerClass" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-valueSerializerClass" class="form-label">Value serializer class</label>
+                                    <input type="text" class="form-control" name="kafka-valueSerializerClass" [(ngModel)]="kafkaConnection.connectionProperties.valueSerializerClass" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-acknowledgements" class="form-label">Acknowledgements</label>
+                                    <select class="form-select" name="kafka-acknowledgements" [(ngModel)]="kafkaConnection.connectionProperties.ackIndicator">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="all">all</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-requestTimeout" class="form-label">Request timeout (ms)</label>
+                                    <input type="number" class="form-control" name="kafka-requestTimeout" [(ngModel)]="kafkaConnection.connectionProperties.requestTimeOut" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-partitionerClass" class="form-label">Partitioner class</label>
+                                    <input type="text" class="form-control" name="kafka-partitionerClass" [(ngModel)]="kafkaConnection.connectionProperties.partitionerClass" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-compressionType" class="form-label">Compression type</label>
+                                    <input type="text" class="form-control" name="kafka-compressionType" [(ngModel)]="kafkaConnection.connectionProperties.compressionType" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-messageSendRetries" class="form-label">Message send retries</label>
+                                    <input type="number" class="form-control" name="kafka-messageSendRetries" [(ngModel)]="kafkaConnection.connectionProperties.maxRetry" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-batchSize" class="form-label">Batch size</label>
+                                    <input type="number" class="form-control" name="kafka-batchSize" [(ngModel)]="kafkaConnection.connectionProperties.batchSize" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-sendBufferBytes" class="form-label">Send buffer bytes</label>
+                                    <input type="number" class="form-control" name="kafka-sendBufferBytes" [(ngModel)]="kafkaConnection.connectionProperties.sendBufferSize" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-clientId" class="form-label">Client id</label>
+                                    <input type="text" class="form-control" name="kafka-client" [(ngModel)]="kafkaConnection.connectionProperties.clientID" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-otherProperties" class="form-label">Other properties</label>
+                                    <input type="text" class="form-control" name="kafka-otherProperties" [(ngModel)]="kafkaConnection.connectionProperties.otherProperties" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mb-3">
+                                    <label for="kafka-poolable" class="form-label">Poolable</label>
+                                    <select class="form-select" name="kafka-poolable" [(ngModel)]="kafkaConnection.connectionManagerProperties.poolable">
+                                        <option value="true">True</option>
+                                        <option value="false">False</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-minimumPoolSize" class="form-label">Minimum pool size</label>
+                                    <input type="number" min="1" class="form-control" name="kafka-minimumPoolSize" [(ngModel)]="kafkaConnection.connectionManagerProperties.minimumPoolSize" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-maximumPoolSize" class="form-label">MaximumPoolSize</label>
+                                    <input type="number" min="1" class="form-control" name="kafka-maximumPoolSize" [(ngModel)]="kafkaConnection.connectionManagerProperties.maximumPoolSize" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-poolIncrementSize" class="form-label">Pool increment size</label>
+                                    <input type="number" min="1" class="form-control" name="kafka-poolIncrementSize" [(ngModel)]="kafkaConnection.connectionManagerProperties.poolIncrementSize" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-blockTimeout" class="form-label">Block timeout (msec)</label>
+                                    <input type="number" class="form-control" name="kafka-blockTimeout" [(ngModel)]="kafkaConnection.connectionManagerProperties.blockingTimeout" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-expireTimeout" class="form-label">Expire timeout (msec)</label>
+                                    <input type="number" class="form-control" name="kafka-expireTimeout" [(ngModel)]="kafkaConnection.connectionManagerProperties.expireTimeout" />
+                                </div>
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-startupRetryCount" class="form-label">Startup retry count</label>
+                                    <input type="number" class="form-control" name="kafka-startupRetryCount" [(ngModel)]="kafkaConnection.connectionManagerProperties.startupRetryCount" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-3">
+                                    <label for="kafka-startupBackoffTimeout" class="form-label">Startup backoff timeout (sec)</label>
+                                    <input type="number" class="form-control" name="kafka-startupBackoffTimeout" [(ngModel)]="kafkaConnection.connectionManagerProperties.startupBackoffSecs" />
+                                </div>
+                            </div>
+                            <div class="mb-3" style="float: right;">
+                                <button class="btn btn-primary" (click)="updateKafkaConnection()">Save connection</button>
+                            </div>
+                        </form>
+                    </ng-container>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.messages-container {
+    position: absolute; 
+    z-index: 1;
+    right: 30px; 
+}
+
+.message-container {
+    margin-bottom: 10px;
+    background-color: white; 
+    padding: 5px 10px; 
+    font-size: 12px; 
+    max-width: 350px;
+}
+
+.message-container.error {
+    border: 2px solid red; 
+    border-left: 10px solid red; 
+}
+
+.message-container.success {
+    border: 2px solid green; 
+    border-left: 10px solid green; 
+}
+
+.message-container .content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.message-container .message-type-icon {
+    width: 18px;
+}
+
+.message-container .close-btn {
+    width: 15px;
+}
+
+.message-container .close-btn:hover {
+    cursor: pointer;
+}

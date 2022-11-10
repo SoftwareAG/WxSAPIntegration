@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">ceilNumber</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgaW5QaXBlbGluZUN1cnNvciA9IHBpcGVsaW5lLmdldEN1cnNvcigpOw0KU3Ry
+aW5nIGluTnVtYmVyID0gSURhdGFVdGlsLmdldFN0cmluZyhpblBpcGVsaW5lQ3Vyc29yLCAiaW5O
+dW1iZXIiKTsNCmluUGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOw0KDQpEb3VibGUgaW5OdW1iZXJB
+c0RvdWJsZSA9IE1hdGguY2VpbChEb3VibGUucGFyc2VEb3VibGUoaW5OdW1iZXIpKTsNCkludGVn
+ZXIgaW5OdW1iZXJBc0ludGVnZXIgPSBpbk51bWJlckFzRG91YmxlLmludFZhbHVlKCk7DQoNCklE
+YXRhQ3Vyc29yIG91dFBpcGVsaW5lQ3Vyc29yID0gcGlwZWxpbmUuZ2V0Q3Vyc29yKCk7DQpJRGF0
+YVV0aWwucHV0KGluUGlwZWxpbmVDdXJzb3IsICJvdXROdW1iZXIiLCBpbk51bWJlckFzSW50ZWdl
+ci50b1N0cmluZygpKTsNCm91dFBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsNCg0KDQoJ</value>
+</Values>

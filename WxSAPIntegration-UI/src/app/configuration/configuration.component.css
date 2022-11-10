@@ -1,0 +1,24 @@
+.card-container .card {
+    padding: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 16%);
+    border-radius: 0;
+}
+
+.section-container {
+    margin-bottom: 30px;
+}
+
+.section-container > div {
+    text-align: center;
+}
+
+.section-container > div > div {
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.section-container > div > div.selected, .section-container > div > div:hover {
+    border-bottom: 3px solid #1776bf;
+    cursor: pointer;
+}

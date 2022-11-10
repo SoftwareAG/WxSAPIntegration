@@ -1,0 +1,33 @@
+a {
+    color: #1776bf;
+    text-decoration: none;
+}
+
+.form-control, .form-select {
+    border-radius: 0;
+}
+
+.form-control:focus, .form-select:focus, .form-check-input:focus {
+    border-color: #1776bf;
+    box-shadow: none;
+}
+
+.form-check-input:checked {
+    background-color: #1776bf;
+}
+
+.btn.btn-primary {
+    background-color: #1776bf;
+    border-radius: 0;
+}
+
+.btn.btn-secondary {
+    background-color: #ffffff;
+    border-color: #1776bf;
+    border-radius: 0;
+    color: #1776bf
+}
+
+.fa-check-circle {
+    color: green;
+}

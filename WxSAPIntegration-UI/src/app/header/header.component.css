@@ -1,0 +1,12 @@
+.navbar {
+    background: #1776bf;
+    height: 64px;
+}
+
+.navbar .logout-link {
+    color: #ffffff;
+}
+
+.navbar .logout-link:hover {
+    cursor: pointer;
+}

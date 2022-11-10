@@ -1,0 +1,43 @@
+<div class="row my-4 mx-2">
+    <div class="col-lg-12">
+        <h3> <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</h3>
+    </div>
+</div>
+<div class="row my-4 mx-4">
+    <div class="col-lg-12">
+        <div class="d-flex card-container">
+            <div class="card">
+                <h5 class="mb-3">SAP Adapter <a routerLink="/configuration/sap" style="float: right;"><i class="fa fa-cog" aria-hidden="true"></i></a></h5>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div>
+                            <strong>Connection</strong>
+                        </div>
+                        <div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="sapConnectionSwitch" [(ngModel)]="sapConnectionState" (change)="toggleSAPConnectionState()">
+                                <label class="form-check-label" for="sapConnectionSwitch">Enabled</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="card">
+                <h5 class="mb-3">Kafka Adapter <a routerLink="/configuration/kafka" style="float: right;"><i class="fa fa-cog" aria-hidden="true"></i></a></h5>
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div>
+                            <strong>Producer connection</strong>
+                        </div>
+                        <div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="kafkaConnectionSwitch" [checked]="kafkaConnectionState.state === 'enabled'" (change)="toggleKafkaConnectionState()">
+                                <label class="form-check-label" for="kafkaConnectionSwitch">Enabled</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

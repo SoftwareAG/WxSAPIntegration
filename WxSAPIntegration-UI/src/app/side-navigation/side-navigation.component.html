@@ -1,0 +1,17 @@
+<nav style="background: #f2f2f2;">
+  <div>
+    <a routerLink="/" class="list-group-item" [ngClass]="selectedRoute === '/' ? 'active' : ''">
+      <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+    </a>
+    <a routerLink="/configuration" class="list-group-item" [ngClass]="selectedRoute === '/configuration' ? 'active' : ''">
+      <i class="fa fa-cog" aria-hidden="true"></i> Configure
+    </a>
+    <a routerLink="/openapi" class="list-group-item" [ngClass]="selectedRoute === '/openapi' ? 'active' : ''">
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i> OpenAPI
+    </a>
+    <div style="position: absolute; bottom: 10px; left: 25px;">
+      <img src="assets/gplogo.png" style="width: 100px;" />
+    </div>
+    
+  </div>
+</nav>

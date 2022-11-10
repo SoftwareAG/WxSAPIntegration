@@ -1,0 +1,12 @@
+{
+    "/wxsapintegration": {
+      "target": "http://daeipresal60363.eur.ad.sag:5555",
+      "secure": false,
+      "changeOrigin": true
+    },
+    "/invoke": {
+      "target": "http://daeipresal60363.eur.ad.sag:5555",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

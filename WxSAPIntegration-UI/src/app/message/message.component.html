@@ -1,0 +1,33 @@
+<div class="messages-container">
+    <ng-container *ngFor="let message of messages; let i = index">
+        <ng-container *ngIf="message.text !== ''">
+            <ng-container *ngIf="message.type === 'error'">
+                <div class="message-container error">
+                    <div class="d-flex">
+                        <div>
+                            <img src="assets/icon-exclamation.png" class="message-type-icon" />
+                        </div>
+                        <div class="content">
+                            {{message.text}}
+                        </div>
+                        <div>
+                            <img src="assets/icon-close.svg" class="close-btn" (click)="closeMessage(i)" />
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="message.type === 'success'">
+                <div class="message-container success">
+                    <div class="d-flex">
+                        <div class="content">
+                            {{message.text}}
+                        </div>
+                        <div>
+                            <img src="assets/icon-close.svg" class="close-btn" (click)="closeMessage(i)" />
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

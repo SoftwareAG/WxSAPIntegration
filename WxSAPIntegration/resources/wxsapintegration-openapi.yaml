@@ -1,0 +1,309 @@
+openapi: 3.0.0
+
+info:
+  title: OpenAPI specification for WxSAPIntegration
+  version: "1.0"
+  contact:
+    name: Kalpshekhar Gupta
+    url: https://github.com/kalpshekhar-sag
+
+servers:
+  - url: http://localhost:5555/wxsapintegration
+
+paths:
+  /customers:
+    get:
+      tags:
+        - customers
+      summary: Get all the customers
+      description: Get all the customers using BAPI_CUSTOMER_GETLIST
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      customers:
+                        type: array
+                        items:
+                          type: object
+                      message:
+                        type: string
+
+  /customers/{id}:
+    get:
+      tags:
+        - customers
+      summary: Get customer by id
+      description: Get customer by id using BAPI_CUSTOMER_GETDETAIL2
+      responses:
+        "200":
+          description: Customer details
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                  message:
+                    type: string
+
+    parameters:
+      - name: id
+        in: path
+        description: ID of a customer
+        required: true
+
+  /customers/search:
+    post:
+      tags:
+        - customers
+      summary: Search customers
+      description: Search cutsomer using BAPI_CUSTOMER_GETLIST
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              properties:
+                request:
+                  type: object
+                  properties:
+                    IDRANGE:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          SIGN:
+                            type: string
+                          OPTION:
+                            type: string
+                          LOW:
+                            type: string
+                          HIGH:
+                            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      customers:
+                        type: array
+                        items:
+                          type: object
+                  message:
+                    type: string
+
+  /equipments:
+    get:
+      tags:
+        - equipments
+      summary: Get all equipments
+      description: Get all equipments using BAPI_EQUI_GETLIST
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      equipments:
+                        type: array
+                        items:
+                          type: object
+                  message:
+                    type: string
+
+
+  /equipments/{id}:
+    get:
+      tags:
+        - equipments
+      summary: Get equipment by id
+      description: Get equipment by id using BAPI_EQUI_GETDETAIL
+      responses:
+        "200":
+          description: Equipment details
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                  message:
+                    type: string
+    parameters:
+      - name: id
+        in: path
+        description: Id of the equipment
+        required: true
+
+  /equipments/search:
+    post:
+      tags:
+        - equipments
+      summary: Search equipments
+      description: Search equipments using BAPI_EQUI_GETLIST
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              properties:
+                request:
+                  type: object
+                  properties:
+                    MAINPLANT_RA:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          SIGN:
+                            type: string
+                          OPTION:
+                            type: string
+                          LOW:
+                            type: string
+                          HIGH:
+                            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      equipments:
+                        type: array
+                        items:
+                          type: object
+                  message:
+                    type: string
+
+  /salesorders/search:
+    post:
+      tags:
+        - salesorders
+      summary: Search sales orders
+      description: Search sales orders using BAPI_SALESORDER_GETLIST
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              properties:
+                  request:
+                    type: object
+                    properties:
+                      CUSTOMER_NUMBER:
+                        type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                    properties:
+                      salesOrders:
+                        type: array
+                        items:
+                          type: object
+                      message:
+                        type: string
+  /salesorders:
+    post:
+      tags: 
+        - salesorders
+      summary: Create sales order
+      description: Create sales order using BAPI_SALESORDER_CREATEFORMDAT2
+      requestBody:
+        content:
+          "application/json":
+            schema:
+              type: object
+              properties:
+                request:
+                  type: object
+                  properties:
+                    organizationalData:
+                      type: object
+                      properties: 
+                        salesOrganization:
+                          type: string
+                        distributionChannel:
+                          type: string
+                        division:
+                          type: string
+                    customerNumber:
+                      type: string
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        properties: 
+                          number:
+                            type: string
+                          material:
+                            type: string
+                          plant:
+                            type: string
+                          quantity:
+                            type: string
+                          category:
+                            type: string
+                          schedules:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                line:
+                                  type: string
+                                quantity:
+                                  type: string
+      responses:
+        "201":
+          description: Success
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties: 
+                  response:
+                    type: object
+                    properties: 
+                      number:
+                        type: string
+                      messages:
+                        type: array
+                        items:
+                          type: object
+                          properties: 
+                            content:
+                              type: string
+                      message:
+                        type: string
