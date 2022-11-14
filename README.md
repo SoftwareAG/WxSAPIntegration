@@ -9,19 +9,19 @@ WxSAPIntegration is a webMethods Integration Server package that gives a quickst
 
 ## Install WxSAPIntegration package
 1. Download the latest release of WxSAPIntegration.zip from Releases section.
-2. Copy WxSAPIntegration.zip to {{softwareag-installation-directory}}/IntegrationServer/instances/{{instance-name}}/replicate/inbound in case of Integration Server and {softwareag-installation-directory}/IntegrationServer/packages/replicate/inbound directory.
-3. Login to Integration Server Admin Console http://{{integrationserver-hostname}}:5555.
+2. Copy WxSAPIntegration.zip to /${SAG_HOME}/IntegrationServer/instances/${INSTANCE}/replicate/inbound directory.
+3. Login to Integration Server Admin Console http://${HOST_NAME}:5555.
 4. Go to Packages > Management in the left side menu and click Install Inbound Releases.
 5. Choose WxSAPIntegration.zip from dropdown and click Install.
 
 ## Configure SAP Connection
-1. Go to http://{{integrationserver-hostname}}:5555/WxSAPIntegration/.
+1. Go to http://${HOST_NAME}:5555/WxSAPIntegration/.
 2. Login using Administrator user, if not logged in already.
 3. Go to Configuration to configure SAP connection parameters.
 4. Go to Dashboard to enable the connection.
 
 ## Usage
-1. Go to http://{{integrationserver-hostname}}:5555/WxSAPIntegration/.
+1. Go to http://${HOST_NAME}:5555/WxSAPIntegration/.
 2. Login using Administrator user, if not logged in already.
 3. Go to OpenAPI tab in the left side menu to see the OpenAPI specification based documentation of all the REST APIs provided by WxSAPIntegration. You can copy the page content to Swagger Editor https://editor-next.swagger.io/ to get user friendly view of APIs.
 4. Use any REST client to consume the APIs.
