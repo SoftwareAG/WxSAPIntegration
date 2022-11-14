@@ -4,12 +4,16 @@
     </div>
 </div>
 <div class="row my-4 mx-4">
+    <div class="col-lg-10">
+        Copy the following content to <a href="https://editor-next.swagger.io/" target="_blank">Swagger Editor</a> for user friendly visualization.
+    </div>
+    <div class="col-lg-2">
+        <button class="btn btn-sm btn-primary float-end" (click)="copyToClipboard(textareaInput)">Copy to clipboard</button>
+    </div>
+</div>
+<div class="row my-4 mx-4">
     <div class="col-lg-12">
-        <code>
-            <pre>
-                {{openAPIContent}}
-            </pre>
-            
-        </code>
+        <textarea class="form-control form-control-lg" [ngModel]="openAPIContent" rows="20" readonly style="font-size: 14px;" #textareaInput>
+        </textarea>
     </div>
 </div>
