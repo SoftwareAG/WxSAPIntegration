@@ -1,6 +1,6 @@
 # WxSAPIntegration
 
-WxSAPIntegration is a webMethods Integration Server package that gives a quickstart to develop or demo an integration with SAP ECC. It provides user-friendly custom UI that specifically allows to configure and manage the a SAP connection. It comes with some example REST APIs like Get all customers, Get customer by id, Search customers, Get all equipments, Get equipment by id, Search equipments, Search sales orders and Create sales order.
+WxSAPIntegration is a webMethods Integration Server package that gives a quickstart to develop or demo an integration into SAP ECC. It provides user-friendly custom UI that specifically allows to configure and manage the a SAP connection. It comes with some example REST APIs like Get all customers, Get customer by id, Search customers, Get all equipments, Get equipment by id, Search equipments, Search sales orders and Create sales order.
 
 ## Pre-requisites
 * webMethods Integration Server
