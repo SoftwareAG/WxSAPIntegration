@@ -1,7 +1,7 @@
 openapi: 3.0.0
 
 info:
-  title: OpenAPI specification for WxSAPIntegration
+  title: OpenAPI specification documentation for WxSAPIntegration
   version: "1.0"
   contact:
     name: Kalpshekhar Gupta
@@ -59,6 +59,8 @@ paths:
         in: path
         description: ID of a customer
         required: true
+        example:
+          "0000001400"
 
   /customers/search:
     post:
@@ -88,6 +90,8 @@ paths:
                             type: string
                           HIGH:
                             type: string
+            example:
+              "request": {"IDRANGE": [{"SIGN": "I","OPTION": "BT","LOW": "0000001400","HIGH": "0000002000"}]}
       responses:
         "200":
           description: Success
@@ -154,6 +158,8 @@ paths:
         in: path
         description: Id of the equipment
         required: true
+        example:
+          "000000000010000466"
 
   /equipments/search:
     post:
@@ -183,6 +189,8 @@ paths:
                             type: string
                           HIGH:
                             type: string
+            example:
+              "request": {"MAINPLANT_RA": [{"SIGN": "I","OPTION": "BT","LOW": "1000","HIGH": "1200"}]}
       responses:
         "200":
           description: Success
@@ -218,6 +226,8 @@ paths:
                     properties:
                       CUSTOMER_NUMBER:
                         type: string
+            example:
+              "request": {"CUSTOMER_NUMBER": "0000001400"}
       responses:
         "200":
           description: Success
@@ -285,6 +295,8 @@ paths:
                                   type: string
                                 quantity:
                                   type: string
+            example:
+              "request": {"organizationalData": {"salesOrganization": "1000","distributionChannel": "10","division": "00"},"customerNumber": "0000001400","items": [{"number": "000010","material": "P-106","plant": "1000","quantity": "001","category": "TAN","schedules": [{"line": "0001","quantity": "001"}]}]}
       responses:
         "201":
           description: Success
