@@ -17,11 +17,11 @@ WxSAPIntegration is a webMethods Integration Server package that gives a quickst
 ## Configure SAP Connection
 1. Go to http://${HOST_NAME}:5555/WxSAPIntegration/.
 2. Login using Administrator user, if not logged in already.
-3. Go to Configuration to configure SAP connection parameters.
-4. Go to Dashboard to enable the connection.
+3. Go to Configuration in left side menu to configure SAP connection parameters.
+4. Go to Dashboard in left side menu to enable the connection.
 
 ## Usage
 1. Go to http://${HOST_NAME}:5555/WxSAPIntegration/.
 2. Login using Administrator user, if not logged in already.
-3. Go to OpenAPI tab in the left side menu to see the OpenAPI specification based documentation of all the REST APIs provided by WxSAPIntegration. You can copy the page content to Swagger Editor https://editor-next.swagger.io/ to get user friendly view of APIs.
+3. Go to OpenAPI tab in the left side menu to see the OpenAPI specification based documentation of all the REST APIs provided by WxSAPIntegration.
 4. Use any REST client to consume the APIs.
