@@ -9,7 +9,7 @@ WxSAPIntegration is a webMethods Integration Server package that gives a quickst
 
 ## Install WxSAPIntegration package
 1. Download the latest release of WxSAPIntegration.zip from Releases section.
-2. Copy WxSAPIntegration.zip to ${SAG_HOME}/IntegrationServer/instances/${INSTANCE}/replicate/inbound directory.
+2. Copy WxSAPIntegration.zip to /${SAG_HOME}/IntegrationServer/instances/${INSTANCE}/replicate/inbound directory.
 3. Login to Integration Server Admin Console http://${HOST_NAME}:5555.
 4. Go to Packages > Management in the left side menu and click Install Inbound Releases.
 5. Choose WxSAPIntegration.zip from dropdown and click Install.
