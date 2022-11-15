@@ -25,3 +25,6 @@ WxSAPIntegration is a webMethods Integration Server package that gives a quickst
 2. Login using Administrator user, if not logged in already.
 3. Go to OpenAPI tab in the left side menu to see the OpenAPI specification based documentation of all the REST APIs provided by WxSAPIntegration.
 4. Use any REST client to consume the APIs.
+
+______________________
+These tools are provided as-is and without warranty or support. They do not constitute part of the Software AG product suite. Users are free to use, fork and modify them, subject to the license agreement. While Software AG welcomes contributions, we cannot guarantee to include every contribution in the master project.
