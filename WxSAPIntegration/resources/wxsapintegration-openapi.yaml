@@ -63,7 +63,7 @@ paths:
           "0000001400"
 
   /customers/search:
-    post:
+     post:
       tags:
         - customers
       summary: Search customers
@@ -109,6 +109,31 @@ paths:
                           type: object
                   message:
                     type: string
+  /customers/batch:
+     get:
+          tags:
+            - customers
+          summary: Get details of customer in batches of 10 customers at a time
+          description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_CUSTOMER_GETDETAIL2 to get details
+          responses:
+            "200":
+              description: Customer details
+              content:
+                "application/json":
+                  schema:
+                    type: object
+                    properties:
+                      response:
+                        type: object
+                      message:
+                        type: string
+    parameters:
+      - name: batchNo
+        in: query
+        description: batch number
+        required: true
+        example:
+          "1"                    
 
   /equipments:
     get:
@@ -245,6 +270,31 @@ paths:
                           type: object
                       message:
                         type: string
+  /salesorders/batch
+    get:
+      tags:
+        - salesorders
+      summary: Get details of salesorders in batches from 10 customers at a time
+      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_SALESORDER_GETLIST to get salesorder details
+      responses:
+        "200":
+          description: Salesorder details
+          content:
+            "application/json":
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: object
+                  message:
+                    type: string
+    parameters:
+      - name: batchNo
+        in: query
+        description: batch number
+        required: true
+        example:
+          "1"                       
   /salesorders:
     post:
       tags: 
