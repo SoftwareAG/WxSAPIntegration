@@ -16,7 +16,22 @@ paths:
       tags:
         - customers
       summary: Get all the customers
-      description: Get all the customers using BAPI_CUSTOMER_GETLIST
+      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_CUSTOMER_GETDETAIL2 to get details. Pagination is supported when passing pageNumber and pageSize, otherwise fetches all the customers.
+      parameters:
+        - name: pageNumber
+          in: query
+          description: Page NUmber
+          required: false
+          schema:
+            type: string
+            example: 0
+        - name: pageSize
+          in: query
+          description: Number of records per pagee
+          required: false
+          schema:
+            type: string
+            example: 50
       responses:
         "200":
           description: Success
@@ -34,6 +49,7 @@ paths:
                           type: object
                       message:
                         type: string
+                        
 
   /customers/{id}:
     get:
@@ -59,11 +75,13 @@ paths:
         in: path
         description: ID of a customer
         required: true
+        schema:
+          type: string
         example:
           "0000001400"
 
   /customers/search:
-     post:
+    post:
       tags:
         - customers
       summary: Search customers
@@ -109,31 +127,7 @@ paths:
                           type: object
                   message:
                     type: string
-  /customers/batch:
-     get:
-          tags:
-            - customers
-          summary: Get details of customer in batches of 10 customers at a time
-          description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_CUSTOMER_GETDETAIL2 to get details
-          responses:
-            "200":
-              description: Customer details
-              content:
-                "application/json":
-                  schema:
-                    type: object
-                    properties:
-                      response:
-                        type: object
-                      message:
-                        type: string
-    parameters:
-      - name: batchNo
-        in: query
-        description: batch number
-        required: true
-        example:
-          "1"                    
+           
 
   /equipments:
     get:
@@ -183,6 +177,8 @@ paths:
         in: path
         description: Id of the equipment
         required: true
+        schema:
+          type: string
         example:
           "000000000010000466"
 
@@ -270,15 +266,31 @@ paths:
                           type: object
                       message:
                         type: string
-  /salesorders/batch
+
+  /salesorders:
     get:
       tags:
         - salesorders
-      summary: Get details of salesorders in batches from 10 customers at a time
-      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_SALESORDER_GETLIST to get salesorder details
+      summary: Get all the customers
+      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_SALESORDER_GETLIST to get salesorder details.
+      parameters:
+        - name: pageNumber
+          in: query
+          description: Page NUmber
+          required: false
+          schema:
+            type: string
+            example: 0
+        - name: pageSize
+          in: query
+          description: Number of records per pagee
+          required: false
+          schema:
+            type: string
+            example: 50
       responses:
         "200":
-          description: Salesorder details
+          description: Success
           content:
             "application/json":
               schema:
@@ -286,21 +298,25 @@ paths:
                 properties:
                   response:
                     type: object
-                  message:
-                    type: string
-    parameters:
-      - name: batchNo
-        in: query
-        description: batch number
-        required: true
-        example:
-          "1"                       
-  /salesorders:
+                    properties:
+                      salesOrders:
+                        type: array
+                        items:
+                          type: object
+                      next_page:
+                        type: string
+                      more_records:
+                        type: string
+                      totalPages:
+                        type: string
+                      message:
+                        type: string
+
     post:
       tags: 
         - salesorders
       summary: Create sales order
-      description: Create sales order using BAPI_SALESORDER_CREATEFORMDAT2
+      description: Create sales order using BAPI_SALESORDER_CREATEFORMDAT2.
       requestBody:
         content:
           "application/json":
