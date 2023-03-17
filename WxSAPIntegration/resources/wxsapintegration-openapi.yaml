@@ -16,18 +16,18 @@ paths:
       tags:
         - customers
       summary: Get all the customers
-      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_CUSTOMER_GETDETAIL2 to get details. Pagination is supported when passing pageNumber and pageSize, otherwise fetches all the customers.
+      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get IDs and then BAPI_CUSTOMER_GETDETAIL2 to get details. Pagination is supported when pageNumber and pageSize paramters are used. Otherwise, all customers are fetched.
       parameters:
         - name: pageNumber
           in: query
-          description: Page NUmber
+          description: Page number and it begins from 0.
           required: false
           schema:
             type: string
             example: 0
         - name: pageSize
           in: query
-          description: Number of records per pagee
+          description: Number of records per page.
           required: false
           schema:
             type: string
@@ -268,50 +268,6 @@ paths:
                         type: string
 
   /salesorders:
-    get:
-      tags:
-        - salesorders
-      summary: Get all the customers
-      description: Uses behind the scenes  BAPI_CUSTOMER_GETLIST to get ID and BAPI_SALESORDER_GETLIST to get salesorder details.
-      parameters:
-        - name: pageNumber
-          in: query
-          description: Page NUmber
-          required: false
-          schema:
-            type: string
-            example: 0
-        - name: pageSize
-          in: query
-          description: Number of records per pagee
-          required: false
-          schema:
-            type: string
-            example: 50
-      responses:
-        "200":
-          description: Success
-          content:
-            "application/json":
-              schema:
-                type: object
-                properties:
-                  response:
-                    type: object
-                    properties:
-                      salesOrders:
-                        type: array
-                        items:
-                          type: object
-                      next_page:
-                        type: string
-                      more_records:
-                        type: string
-                      totalPages:
-                        type: string
-                      message:
-                        type: string
-
     post:
       tags: 
         - salesorders

@@ -836,6 +836,9 @@
 
 <MAPDELETE FIELD="/customers;2;0">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/cacheNo;1;0">
+</MAPDELETE>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="pub.flow:clearPipeline" VALIDATE-IN="$none" VALIDATE-OUT="$none">

@@ -4,7 +4,7 @@
   <record name="record" javaclass="com.wm.util.Values">
     <value name="node_type">record</value>
     <value name="node_subtype">unknown</value>
-    <value name="node_nsName">wx.sap.integration.salesOrders.docTypes:salesOrderBatchReq</value>
+    <value name="node_nsName">wx.sap.integration.customers.docTypes:customerBatchReq</value>
     <value name="node_pkg">WxSAPIntegration</value>
     <value name="node_comment"></value>
     <value name="is_public">false</value>
